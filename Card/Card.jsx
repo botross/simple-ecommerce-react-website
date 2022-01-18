@@ -52,7 +52,7 @@ let dispatch = useDispatch()
                     popUp ? 
                         <Stack sx={{ width: '100%' , hight : "5000px" }} spacing={2}>
                             <Alert onClose={() => {setPopUp(false)}} variant="filled" severity="success">
-                                Successfully added to the cart...
+                                Successfully added to the cart....
                                 </Alert>
                             </Stack> : null
                 }
