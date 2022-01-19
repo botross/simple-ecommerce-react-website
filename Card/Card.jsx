@@ -5,6 +5,8 @@ import {BsCartPlus} from "react-icons/bs"
 import * as React from 'react';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
+
 function Card({product , details}) {
 const [popUp, setPopUp] = useState(false)
 useEffect(() => {
@@ -17,7 +19,8 @@ let dispatch = useDispatch()
     const kart =  product.map((item)=>{
         item.quantity = 1;
             return(
-                <div className="containerrr" key={item.id}>
+                <Grid item lg={3} md={6} sm={12}>
+                    <div className="containerrr" key={item.id}>
                     <div >
                         <div className="img-cont">
                         <img src={item.image} className="item-img" alt="" width={"200px"} />
@@ -42,12 +45,13 @@ let dispatch = useDispatch()
                         </div>
                     </div>
                 </div>
+                </Grid>
             )
         })
         return (
             <>
             <div className="wrapper">
-                <div className='popup'>
+            <div className='popup'>
                 {
                     popUp ? 
                         <Stack sx={{ width: '100%' , hight : "5000px" }} spacing={2}>
@@ -57,9 +61,11 @@ let dispatch = useDispatch()
                             </Stack> : null
                 }
                 </div>
+                <Grid container spacing={4}>
                 {kart}
+                </Grid>
             </div>
-                    </>
+            </>
         )
 }
 
